@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/p5.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/addons/p5.sound.min.js"></script>
+        <link rel="icon" type="image/gif" href="https://codehs.com/uploads/482660e46613b37998ae8ea925a1a56a">
+        <style>
+            body{
+                font-family:Arial,Helvetica,sans-serif;
+            }
+            canvas
+            {
+                display: block;
+                margin-top: 10px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 10px;
+                /*border:5px solid black;*/
+                box-shadow: 0px 0px 12px 6px rgba(0,0,0,0.20);
+            }
+            table {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            h1, h2 {
+                text-align: center;
+                font-family: Verdana, sans-serif;
+                font-weight:normal
+            }
+            .pageContent {
+                margin-left:20%;
+                margin-right:20%;
+                border: 5px solid black;
+                padding: 10px;
+                background-color:white;
+                border-radius:10px;
+            }
+            .rainbow {
+                background: linear-gradient(in hsl longer hue 180deg, red, blue);
+            }
+            .bob {
+                mix-blend-mode: multiply;
+                position:fixed;
+                bottom:0px;
+                left:0px;
+                width:15%;
+            }
+        </style>
+    </head>
+    <body>
+        <body class = "rainbow">
+        <script src="gameoflife.js"></script>
+        <a href="/gameoflifeFS"><img src="bob_ross_img.png" class="bob"></a>
+        <div class="pageContent">
+            <div>
+                <h1>Conway's Game of Life</h1>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;This is a modified demo of Conway's Game of Life that I created for a Flex Friday session. The colors of the cells change in hue as they age (<span style="color: red;">red</span> = young, <span style="color: blue">blue</span> = old). <u>When cells reach their maximum age, they die</u>. You can draw new cells with the mouse cursor. While you are able to draw during the simulation, this typically results in the cell immediately dying and is therefore difficult to notice.</p>
+            </div>
+            <div id="game"></div>
+            <table border="1" style="width:200px;">
+                <tr>
+                    <th>Control</th>
+                    <th>Effect</th>
+                </tr>
+                <tr>
+                    <td>Left Mouse</td>
+                    <td>Draw new cells (while held)</td>
+                </tr>
+                <tr>
+                    <td>P</td>
+                    <td>Pause/Unpause</td>
+                </tr>
+                <tr>
+                    <td>R</td>
+                    <td>Randomize grid</td>
+                </tr>
+                <tr>
+                    <td>N</td>
+                    <td>Clear grid</td>
+                </tr>
+                <tr>
+                    <td>S</td>
+                    <td>Save grid</td>
+                </tr>
+                <tr>
+                    <td>L</td>
+                    <td>Load saved grid; empty by default</td>
+                </tr>
+                <tr>
+                    <td>G</td>
+                    <td>While paused, enables grid (warning: this will slow down the framerate)</td>
+                </tr>
+            </table>
+            <h2>Reflections</h2>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;Surprisingly, there is still at least one stable shape even when cells can die of old age! Not all 2x2 px squares are stable, but they ocassionally can be, and seemingly via different methods.
+            </p>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;There are also semi-stable shapes, which should be familiar to our Game of Life scholars out there. They will continue to propogate new life so long as a single pixel is living, but when it dies of old age, the whole shape collapses. These are the non-2x2 configurations we would typically consider stable in standard Game of Life.
+            </p>
+            <h2>Future</h2>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;I'd like to make a version with more drawing tools, such as the ability to stamp famous patterns with a single mouse click. Hypothetically, this shouldn't be too hard. I'd also like to draw a pixel that follows the mouse cursor at the same resolution as the grid, so you can more easily tell where you are drawing, or where that hypothetical pattern would be placed. I'd like to fix the drawing tool so there are no gaps when you hold click down (due to mouse updates being spaced too far apart to detect overlap with a grid space). An eraser tool would be nice.
+            </p>
+        </div>
+    </body>
+</html>

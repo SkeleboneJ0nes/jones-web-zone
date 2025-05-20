@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wave Function Collapse - The Jones Web Zone</title>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/p5.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/addons/p5.sound.min.js"></script>
+        <link rel="icon" type="image/gif" href="https://codehs.com/uploads/482660e46613b37998ae8ea925a1a56a">
+        <link rel="stylesheet" href="FlexFriday.css">
+        <style>
+            .titleCard h1 {
+                font-size:3vw;
+            }
+            figure.island {
+                width:225px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Boilerplate setup - nav bar, palette selector, etc. -->
+        <script src="paletteSelector.js"></script>
+        <header class="blurOverlay">
+            <a href="index"><img src="Assets/MrJonesNinStyleLogo.png" id="logo" alt="logo" width="200vw"></a>
+            <nav>
+                <ul class="navLinks">
+                    <li><a href="basiclife">Game of Life</a></li>
+                    <li><a href="FallingSand">Falling Sand</a></li>
+                    <li><a href="WaveFunction">Wave Function Collapse</a></li>
+                    <li><a href="3dFromScratch">Basics of 3D</a></li>
+                </ul>
+            </nav>
+            <a href="mailto:jonesi1@fultonschools.org"><button>Questions? Ask Away!</button></a>
+        </header>
+        <div class="paletteContainer">
+            <div id="palette1"></div>
+            <div id="palette2"></div>
+            <div id="palette3"></div>
+            <div id="palette4"></div>
+        </div>
+        <br><br><br><br><br><br><br><br>
+        <!-- Page content begins here -->
+        <!-- Title Card Area -->
+        <div class="titleCard">
+            <div id="titleCardBg">
+                <img src="Images/wfcFlowers.png" width = 100%>
+            </div>
+            <h1 style="font-size:4vw; margin-bottom:4vw">WAVE FUNCTION COLLAPSE</h1>
+            <div class="belowTitle">
+                <img id="jonesLogo" src="Assets/MrJonesNinStyleLogo.png" width = 30%>
+                <i>FLEX FRIDAY SESSION</i>
+            </div>
+        </div>
+        <!-- End Title Card Area -->
+        
+        <br>
+        
+        <div class="pageContent">
+            <h1>Introduction</h1>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;Some of you may know that I specialized in Procedural Generation in college. For my first (of two) senior project, I stumbled upon a technique with my own creativity that I would later discover was documented in a research paper a year earlier by the name
+            </p>
+            <br>
+            <h2 class="wave-text">
+                <span></span>
+                <span></span>
+                <span>W</span>
+                <span>A</span>
+                <span>V</span>
+                <span>E</span>
+                <span></span>
+                <span></span>
+            </h2>
+            <h2 class="wave-text">
+                <span>F</span>
+                <span>U</span>
+                <span>N</span>
+                <span>C</span>
+                <span>T</span>
+                <span>I</span>
+                <span>O</span>
+                <span>N</span>
+            </h2>
+            <h2 class="wave-text">
+                <span>C</span>
+                <span>O</span>
+                <span>L</span>
+                <span>L</span>
+                <span>A</span>
+                <span>P</span>
+                <span>S</span>
+                <span>E</span>
+            </h2>
+            <br>
+            <div>
+                <figure >
+                    <img src="https://github.com/mxgmn/WaveFunctionCollapse/blob/master/images/summer-1.png?raw=true" width=48% class="shadowOutline">
+                    <img src="https://paulmerrell.org/wp-content/uploads/2021/07/city_simple9f.jpg" width=43% style="float:right;" class="shadowOutline">
+                    <figcaption>Pictured: 2D tilemap generated using wave function collapse and 3d world generated with a similar technique called model synthesis, which is considered to be a precursor of modern WFC techniques!</figcaption>
+                </figure>
+                
+            </div>
+            <h1>How does it work?</h1>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;There are a couple different types of <span class="wave-text mini"><span>W</span><span>a</span><span>v</span><span>e</span><span>&nbsp;</span><span>F</span><span>u</span><span>n</span><span>c</span><span>t</span></span><span class="wave-text mini"><span>i</span><span>o</span><span>n</span><span>&nbsp;</span><span>C</span><span>o</span><span>l</span><span>l</span><span>a</span><span>p</span><span>s</span><span>e</span></span> (referred to as WFC from here on out for brevity) that function slightly differently, but the gist of it is this:</p>
+            <div style="text-align:center;">
+                <p>First, start with a small source image. Let's use this 9x9 pixel image of an island</p>
+                <figure>
+                    <img src="/Assets/islandBigger.png" class="centerImage shadowOutline">
+                    <figcaption>Pictured: Island, demure</figcaption>
+                </figure>
+                <h2>Adjacency</h2>
+                <p>Next, we need to look at each pixel in the image and use code to generate a list of rules for which pixels are allowed to go next to other pixels. For example, in this image, water pixels can only touch water and sand, but never touch grass. Conversely, grass can touch other grass and coast, but never water. This is where techniques often differ - do we just check adjacent tiles, or a larger region? How do we store this information?</p>
+                <p>In our session, we'll be focusing on the Overlapping Model. We start by looking at a specific 3x3 pixel region of the image, called a tile</p>
+                <figure class="island centerImage">
+                    <img src="/Assets/islandBiggerSelect.png">
+                    <figcaption>Pictured: The first 3x3 pixel region in the image</figcaption>
+                </figure>
+                <p>Now we need to pick a direction. Let's start with East - we will eventually check every direction. Based on the rightmost two columns in this selection, which other 3x3 pixel regions in the image overlap with their leftmost two columns? It's a little confusing, so let's start with an example that doesn't work.</p>
+                <div class="imgContainer" style="margin-left:10%">
+                    <figure class="island">
+                        <img src="/Assets/islandBiggerSelect2.png">
+                        <figcaption>Realistically, we would check every tile. What does our logic look like with this tile?</figcaption>
+                    </figure>
+                    <figure class="island">
+                        <img src="/Assets/islandBiggerSelect3.png">
+                        <figcaption>When we compare the rightmost column of our origin tile with the leftmost column of the destination tile, we can see they are not the same. Therefore, the destination tile cannot exist to the East of the origin tile.</figcaption>
+                    </figure>
+                </div>
+                <p>In our program, <i>every</i> tile gets a turn being the origin tile, and it will check for overlaps with <i>every other tile</i> in <i>every</i> direction.</p>
+                <figure class="island centerImage">
+                    <img src="/Assets/islandExplode.png">
+                    <figcaption>Pictured: Each tile displayed individually. You'll notice I've included some wraparound for the last row/column back to the beginning.</figcaption>
+                </figure>
+                <p>Yes this does take a lot of time! Yes there are many ways to optimize it! No I won't be teaching them because they're more conceptually complicated and time consuming! Look it up!</p>
+                <h2>Entropy</h2>
+                <p>Okay, now every possible pattern of tiles knows whether or not it can be placed next to any other tile. How do they get placed? Well, we start by defining an output size - we can use the patterns generated from the original image to generate a much larger one! In that output image, every pixel is currently empty, and therefore any of our tiles can be placed at any location. We'll pick a random one to start.</p>
+                <p>Once the first pixel has been placed, suddenly the pixels immediately surrounding it can only support a small handful of tiles, since there are only so many valid pixels that can be placed next to that original one based on our rules. Since these spots have fewer possibilities, they are prioritized for selection when we place another tile. This is the concept of Entropy - if a pixel has fewer posibilities, we need to place (or "collapse") it first. This reduces the risk of generating an image where not every pixel can be placed due to positions where the neighbors do not allow for any valid tile placement.</p>
+                <p>Maybe it will help to just see it in action...</p>
+                <figure>
+                    <script src="waveFunctionCollapse.js"></script>
+                    <div id="game"></div>
+                    <figcaption style="width:400px;" class="centerImage">This is my first attempt at WFC, using a model that only checks for adjacent tiles. Press [ENTER] to reset and [P] to pause. </figcaption>
+                </figure>
+                <p>This particular model with this particular image never fails to generate an image. As source images increase in complexity, and we implement methods of generating more accurate outputs, the possibility of generating invalid tile states becomes increasingly more likely. <a href=failWFC>Here's an abandoned implementation that uses a higher resolution input to generate much more convincing islands</a></p>
+            </div>
+            
+            <h1>What we will do in this session...</h1>
+            <ul>
+                <li>Step-by-step explanation of WFC</li>
+                <li>Join my CodeHS section</li>
+                <li>In <b>session 1</b>, we will start from scratch, reading an image file and splitting it into all the tiles that can be generated in our model</li>
+                <li>In <b>session 2</b>, we'll start from a checkpoint with tile placement/entropy. This is the home stretch where you get to see the algorithm in action, but involves a ton of starter code.</li>
+                <li>Have an open discussion about applications and/or optimizations</li>
+            </ul>
+            
+            
+            <p>Check <a href="https://github.com/mxgmn/WaveFunctionCollapse">this GitHub page</a> if you'd like to check out an in-depth, professional breakdown of WFC.</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Game of Life - The Jones Web Zone</title>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/p5.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/addons/p5.sound.min.js"></script>
+        <link rel="icon" type="image/gif" href="https://codehs.com/uploads/482660e46613b37998ae8ea925a1a56a">
+        <link rel="stylesheet" href="FlexFriday.css">
+        <style>
+            body {
+                font-family:Arial,Helvetica,sans-serif;
+            }
+            h1, h2 {
+                font-family: Verdana, sans-serif;
+                color:black;
+            }
+            table {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .rainbow {
+                background: linear-gradient(in hsl longer hue 180deg, red, blue);
+            }
+            .bob {
+                mix-blend-mode: multiply;
+                position:fixed;
+                bottom:0px;
+                left:0px;
+                margin:0px;
+                padding:0px;
+                width:15%;
+            }
+            .hide {
+                display:none;
+            }
+            .bob:hover + .hide {
+                display:block;
+                position:fixed;
+                bottom:22vw;
+                left:0px;
+                border: 3px solid black;
+                width:15vw;
+                text-align:center;
+                background-color:white;
+                border-radius:15px;
+                padding-top:5px;
+                padding-bottom:5px;
+            }
+            .pageContent {
+                margin-left:20%;
+                margin-right:20%;
+                border: 5px solid black;
+                padding: 10px;
+                background-color:rgba(255, 255, 255, 0.8);
+                border-radius:10px;
+            }
+        </style>
+    </head>
+    <body class="rainbow">
+        <script src="basiclife.js"></script>
+        <div class="bob">
+            <a href="/gameoflife" style="padding:0px; margin:0px;"><img src="bob_ross_img.png" width="100%"></a>
+        </div>
+        <div class="hide">
+            <span>Wow! This is cool! I'm Bob Ross btw. Click me to visit another cool site!</span>
+        </div>
+        <header class="blurOverlay">
+            <a href="index"><img src="Assets/MrJonesNinStyleLogo.png" id="logo" alt="logo" width="200vw"></a>
+            <nav>
+                <ul class="navLinks">
+                    <li><a href="basiclife">Game of Life</a></li>
+                    <li><a href="FallingSand">Falling Sand</a></li>
+                    <li><a href="WaveFunction">Wave Function Collapse</a></li>
+                    <li><a href="3dFromScratch">Basics of 3D</a></li>
+                </ul>
+            </nav>
+            <a href="mailto:jonesi1@fultonschools.org"><button>Questions? Ask Away!</button></a>
+        </header>
+        <br><br><br><br><br><br><br><br>
+        <div class="pageContent">
+            <div>
+                <h1 style="color:black;">Conway's Game of Life</h1>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;This is the simplest version of Conway's Game of Life that you will make during our session. This simulation follows a few simple rules:</p>
+                <ol>
+                    <li>A cell with 1 or 0 neighbors will die, as if of loneliness.</li>
+                    <li>A cell with 4 or more neighbors will die, as if from overpopulation.</li>
+                    <li>A cell with 2 or 3 neighbors happily survives :)</li>
+                    <li>If an empty cell has 3 neighbors, a new cell is born!</li>
+                </ol>
+                <p>
+                    Below, we can see this in action... (refresh for a new starting configuration)
+                </p>
+            </div>
+            <div id="game"></div>
+            <h2>What we will do in the session...</h2>
+            <ul>
+                <li>Join CodeHS class for this session</li>
+                <li>Program the Game of Life from a basic starter program in Javascript in the sandbox</li>
+                <li>Complete bounty challenge activities by modifying the program or analyzing patterns in our organisms</li>
+                <li>Discuss potential applications of this technique (cellular automata, wave function collapse, etc.)</li>
+                <li>Based on interest, I intend to continue teaching concepts in Cellular Automata, with a fun physics game being the next goal and a randomly generated adventure game as the final goal. These are ideas I'd like to explore in future Flex Fridays :)</li>
+            </ul>
+            <br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+    </body>
+</html>

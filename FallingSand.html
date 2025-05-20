@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Falling Sand - The Jones Web Zone</title>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/p5.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/addons/p5.sound.min.js"></script>
+        <link rel="icon" type="image/gif" href="https://codehs.com/uploads/482660e46613b37998ae8ea925a1a56a">
+        <link rel="stylesheet" href="FlexFriday.css">
+        <style>
+            iframe, table {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="fallingSand.js"></script>
+        <script src="paletteSelector.js"></script>
+        <header class="blurOverlay">
+            <a href="index"><img src="Assets/MrJonesNinStyleLogo.png" id="logo" alt="logo" width="200vw"></a>
+            <nav>
+                <ul class="navLinks">
+                    <li><a href="basiclife">Game of Life</a></li>
+                    <li><a href="FallingSand">Falling Sand</a></li>
+                    <li><a href="WaveFunction">Wave Function Collapse</a></li>
+                    <li><a href="3dFromScratch">Basics of 3D</a></li>
+                </ul>
+            </nav>
+            <a href="mailto:jonesi1@fultonschools.org"><button>Questions? Ask Away!</button></a>
+        </header>
+        <div class="paletteContainer">
+            <div id="palette1"></div>
+            <div id="palette2"></div>
+            <div id="palette3"></div>
+            <div id="palette4"></div>
+        </div>
+        <br><br><br><br><br><br><br><br>
+        <!-- Title Card Area -->
+        <div class="titleCard">
+            <div id="titleCardBg">
+                <img src="Assets/sandTitle.png" width = 100%>
+            </div>
+            <h1>FALLING SAND GAME</h1>
+            <div class="belowTitle">
+                <img id="jonesLogo" src="Assets/MrJonesNinStyleLogo.png" width = 30%>
+                <i>FLEX FRIDAY SESSION</i>
+            </div>
+        </div>
+        <!-- End Title Card Area -->
+        
+        <br>
+        <div class="pageContent">
+            <h1>Introduction</h1>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;At age 8, when I discovered you could sneakily play online games during typing class, my brain was opened to dozens of worlds of seemingly unlimited entertainment. Among those worlds exist Falling Sand games, where pixels on the screen represent elements (grains of sand, drops of water, seeds, particles of fire, etc.), and the player has godlike control of a box where the possibilities seem endless. My childhood favorite is actually <a href="https://dan-ball.jp/en/javagame/dust2/">still online</a>, but the genre has evolved in big ways ever since, culminating in the hit indie game Noita:
+            </p>
+            <iframe width="720" height="480" src="https://www.youtube.com/embed/0cDkmQ0F0Jw?si=AaT3SY_ngOXWaA1C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;The engine at the core of these games is actually the same as Conway's Game of Life (from my previous Flex Friday Session) - CELLULAR AUTOMATA! As a recap, Cellular Automata are machines we can program that simulate natural behavior with pixels on a grid. These pixels have discrete states, such as on/off (as seen in Game of Life), or sand/water/air (as we will see today). While the behaviors that emerge from these systems may appear complex, the programming at their core really just involves setting up some simple rules for how each pixel should behave on any given frame.
+            </p>
+            <h1>Demonstration</h1>
+            <p style="text-align:center;">Here's a simple demo program I set up that is reasonable for us to complete today.</p>
+            <div id="game"></div>
+            <table border="1" style="width:200px;">
+                <tr>
+                    <th>Control</th>
+                    <th>Effect</th>
+                </tr>
+                <tr>
+                    <td>Left Mouse</td>
+                    <td>Drop particles (while held)</td>
+                </tr>
+                <tr>
+                    <td>0-2</td>
+                    <td>Set Element (Air, Sand, Water)</td>
+                </tr>
+            </table>
+            <h1>What we will do in the session...</h1>
+            <ul>
+                <li>Join my Flex Friday CodeHS Section (if you've had one of my CA sessions before, you're already in it)</li>
+                <li>Given very simple starter code, follow along with Mr. Jones to complete a basic falling sand game</li>
+                <li>With one element added, I'll leave it up to you to add more or stylize yours! Some ideas:
+                <ul>
+                    <li>Make sand <span style="background-image: linear-gradient(to right, red, yellow, green, blue); color: transparent; background-clip: text; font-weight:700;">rainbow</span> colored (easy)</li>
+                    <li>Add another element like water (medium)</li>
+                    <li>Add a player that can move around the world (hard)</li>
+                    <li>Use a library like three.js to port your program to 3D (very hard)</li>
+                </ul></li>
+            </ul>
+        </div>
+    </body>
+</html>

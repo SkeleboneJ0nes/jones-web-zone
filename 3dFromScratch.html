@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Origins of 3D - The Jones Web Zone</title>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/p5.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/addons/p5.sound.min.js"></script>
+        <link rel="icon" type="image/gif" href="https://codehs.com/uploads/482660e46613b37998ae8ea925a1a56a">
+        <link rel="stylesheet" href="FlexFriday.css">
+        <style>
+            .titleCard h1 {
+                font-size:3vw;
+            }
+            figure.island {
+                width:225px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Boilerplate setup - nav bar, palette selector, etc. -->
+        <script src="paletteSelector.js"></script>
+        <header class="blurOverlay">
+            <a href="index"><img src="Assets/MrJonesNinStyleLogo.png" id="logo" alt="logo" width="200vw"></a>
+            <nav>
+                <ul class="navLinks">
+                    <li><a href="basiclife">Game of Life</a></li>
+                    <li><a href="FallingSand">Falling Sand</a></li>
+                    <li><a href="WaveFunction">Wave Function Collapse</a></li>
+                    <li><a href="3dFromScratch">Basics of 3D</a></li>
+                </ul>
+            </nav>
+            <a href="mailto:jonesi1@fultonschools.org"><button>Questions? Ask Away!</button></a>
+        </header>
+        <div class="paletteContainer">
+            <div id="palette1"></div>
+            <div id="palette2"></div>
+            <div id="palette3"></div>
+            <div id="palette4"></div>
+        </div>
+        <br><br><br><br><br><br><br><br>
+        <!-- Page content begins here -->
+        <!-- Title Card Area -->
+        <div class="titleCard">
+            <div id="titleCardBg">
+                <img src="Images/80sLandscape.jpg" width = 100%>
+            </div>
+            <h1 style="font-size:4.5vw; margin-bottom:4vw">ORIGINS OF 3D GRAPHICS</h1>
+            <div class="belowTitle">
+                <img id="jonesLogo" src="Assets/MrJonesNinStyleLogo.png" width = 30%>
+                <i>FLEX FRIDAY SESSION</i>
+            </div>
+        </div>
+        <!-- End Title Card Area -->
+        
+        <br>
+        
+        <div class="pageContent">
+            <h1>Introduction</h1>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;Making a 2D image on a computer is easy enough - open a paint program, draw some pixels, and save it. It's easy to imagine how a game engine moves around these pixels to create 2D games... but how do computers render 3D graphics? How do they take a set of points in 3D space and figure out how to display them on our 2-dimensional screens? Must involve math, right?
+            </p>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;For a long time, I let myself be scared by that prospect and avoided researching further, but over Spring Break, I got curious and borrowed <a href="https://gabrielgambetta.com/computer-graphics-from-scratch/">a book</a> from the library that opened my mind - turns out, it's not <i>too</i> difficult, especially for the basics! So that's where we'll start - drawing 2d shapes and rotating them. As a proof of concept, here's a more complex, WIP demo of a 3D engine running in Makecode Arcade (similar to Scratch) that I developed with the help of that book.
+            </p>
+            
+            <div style="width:50%;height:50%" class="centerImage">
+                <div style="position:relative;height:0;padding-bottom:117.6%;overflow:hidden;"><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://arcade.makecode.com/---run?id=S60640-91551-56273-11573" allowfullscreen="allowfullscreen" sandbox="allow-popups allow-forms allow-scripts allow-same-origin" frameborder="0" ></iframe>
+                </div>
+                <figcaption>After clicking on the screen, you can move with WASD or arrows; the Z key or Spacebar is the A button, and the X key is the B button</figcaption>
+            </div>
+            
+            <h1>What we will do in this session...</h1>
+            <ul>
+                <li>Explore the origins of 3D graphics on computers</li>
+                <li>Pick an IDE of our choice to program a basic 3D engine - if you can draw a pixel on a screen with it, you can make a 3D engine. Some recommendations
+                    <ul>
+                        <li>Python
+                            <ul>
+                                <li><b>Pygame</b></li>
+                                <li>tKinter</li>
+                            </ul>
+                        </li>
+                        <li>Javascript
+                            <ul>
+                                <li><b>p5.js</b> (what you've used if you've attended my other sessions)</li>
+                            </ul>
+                        </li>
+                        <li>Because I know someone will ask, yes it's possible in these but it's annoying and/or frustrating for a variety of reasons so I don't recommend it
+                            <ul>
+                                <li>Scratch</li>
+                                <li>CSS</li>
+                                <li>Tracy the Turtle</li>
+                            </ul>
+                        </li>
+                        <li>Real, industry standard options that are a little more complicated than I have time to get into and I am not an expert on (yet)
+                            <ul>
+                                <li>C++ with OpenGL</li>
+                                <li>Javascript with WebGL (old)</li>
+                                <li>Javascript with Three.js (new)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
