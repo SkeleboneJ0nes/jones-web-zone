@@ -19,7 +19,7 @@
     display:flex;
     width:60px;
     padding:10px 5px;
-    box-sizing: border-box
+    box-sizing: border-box;
     z-index:100;
 }
 .paletteContainer div {
@@ -60,7 +60,7 @@ header {
 }
 header li, a, button {
     font-weight:500;
-    font-size 16px;
+    font-size: 16px;
     color:var(--paletteL);
     text-decoration:none;
 }
@@ -146,7 +146,7 @@ h1, h2 {
     display:none;
 }
 .blurOverlay {
-    /*background-color: rgba(255, 255, 255, 0.5);*/
+    background-color: rgba(0, 0, 0, 0.4);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
 }

@@ -48,8 +48,15 @@
             }
         </style>
     </head>
-    <body>
-        <body class = "rainbow">
+    <body class="rainbow">
+        <div id="navbar"></div>
+        <script>
+            fetch('/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+        </script>
         <script src="gameoflife.js"></script>
         <a href="/gameoflifeFS"><img src="bob_ross_img.png" class="bob"></a>
         <div class="pageContent">

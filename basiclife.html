@@ -65,19 +65,14 @@
         <div class="hide">
             <span>Wow! This is cool! I'm Bob Ross btw. Click me to visit another cool site!</span>
         </div>
-        <header class="blurOverlay">
-            <a href="index"><img src="Assets/MrJonesNinStyleLogo.png" id="logo" alt="logo" width="200vw"></a>
-            <nav>
-                <ul class="navLinks">
-                    <li><a href="basiclife">Game of Life</a></li>
-                    <li><a href="FallingSand">Falling Sand</a></li>
-                    <li><a href="WaveFunction">Wave Function Collapse</a></li>
-                    <li><a href="3dFromScratch">Basics of 3D</a></li>
-                </ul>
-            </nav>
-            <a href="mailto:jonesi1@fultonschools.org"><button>Questions? Ask Away!</button></a>
-        </header>
-        <br><br><br><br><br><br><br><br>
+        <div id="navbar"></div>
+        <script>
+            fetch('/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+        </script>
         <div class="pageContent">
             <div>
                 <h1 style="color:black;">Conway's Game of Life</h1>
